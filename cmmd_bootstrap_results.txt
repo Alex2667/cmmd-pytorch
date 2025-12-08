@@ -1,0 +1,75 @@
+# CMMD bootstrap runs
+# SRC_DIR=/export/data/abespalo/eval/top_40_eval/eval_coconut_base_50k/step_13000
+# SUBSET_SIZE=64, N_RUNS=10
+# REF_EMBED_FILE=/export/data/abespalo/datasets/unsplash-research-dataset-lite-latest/unsplash_images_all/ref_embeddings.npy
+
+### Run 1
+CMMD: 7.670
+Raw output:
+Calculating embeddings for 63 images from /tmp/tmp.GehAGxqbVc.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.15s/it]2it [00:05,  2.93s/it]                       2it [00:05,  2.96s/it]
+The CMMD value is:  7.670
+
+### Run 2
+CMMD: 7.688
+Raw output:
+Calculating embeddings for 61 images from /tmp/tmp.sE6vS18buA.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.22s/it]2it [00:05,  2.86s/it]                       2it [00:05,  2.91s/it]
+The CMMD value is:  7.688
+
+### Run 3
+CMMD: 7.564
+Raw output:
+Calculating embeddings for 63 images from /tmp/tmp.03lLi6YvwY.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.19s/it]2it [00:05,  2.95s/it]                       2it [00:05,  2.99s/it]
+The CMMD value is:  7.564
+
+### Run 4
+CMMD: 7.496
+Raw output:
+Calculating embeddings for 61 images from /tmp/tmp.x4jdocL9SH.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.15s/it]2it [00:05,  2.81s/it]                       2it [00:05,  2.86s/it]
+The CMMD value is:  7.496
+
+### Run 5
+CMMD: 7.564
+Raw output:
+Calculating embeddings for 63 images from /tmp/tmp.drfEYOoqJb.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.12s/it]2it [00:05,  2.90s/it]                       2it [00:05,  2.93s/it]
+The CMMD value is:  7.564
+
+### Run 6
+CMMD: 7.510
+Raw output:
+Calculating embeddings for 63 images from /tmp/tmp.UKxwtiMUsO.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.11s/it]2it [00:05,  2.90s/it]                       2it [00:05,  2.93s/it]
+The CMMD value is:  7.510
+
+### Run 7
+CMMD: 7.821
+Raw output:
+Calculating embeddings for 62 images from /tmp/tmp.pQ8sMj9pHw.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.13s/it]2it [00:05,  2.84s/it]                       2it [00:05,  2.89s/it]
+The CMMD value is:  7.821
+
+### Run 8
+CMMD: 7.761
+Raw output:
+Calculating embeddings for 62 images from /tmp/tmp.ejM7JkIqIs.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.25s/it]2it [00:05,  2.89s/it]                       2it [00:05,  2.94s/it]
+The CMMD value is:  7.761
+
+### Run 9
+CMMD: 7.567
+Raw output:
+Calculating embeddings for 61 images from /tmp/tmp.alhL0FGl8h.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.15s/it]2it [00:05,  2.80s/it]                       2it [00:05,  2.85s/it]
+The CMMD value is:  7.567
+
+### Run 10
+CMMD: 7.494
+Raw output:
+Calculating embeddings for 64 images from /tmp/tmp.fQp3OcVblP.
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:03<00:03,  3.18s/it]100%|██████████| 2/2 [00:06<00:00,  3.00s/it]100%|██████████| 2/2 [00:06<00:00,  3.03s/it]
+The CMMD value is:  7.494
+
