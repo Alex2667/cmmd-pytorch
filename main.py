@@ -21,6 +21,7 @@ import distance
 import embedding
 import io_util
 import numpy as np
+import os
 
 
 _BATCH_SIZE = flags.DEFINE_integer("batch_size", 32, "Batch size for embedding generation.")
@@ -54,6 +55,10 @@ def compute_cmmd(ref_dir, eval_dir, ref_embed_file=None, batch_size=32, max_coun
         ref_embs = io_util.compute_embeddings_for_dir(ref_dir, embedding_model, batch_size, max_count).astype(
             "float32"
         )
+        save_path = os.path.join(ref_dir, "ref_embeddings.npy")
+        print(f"Saving reference embeddings to {save_path}...")
+        np.save(save_path, ref_embs)
+        
     eval_embs = io_util.compute_embeddings_for_dir(eval_dir, embedding_model, batch_size, max_count).astype("float32")
     val = distance.mmd(ref_embs, eval_embs)
     return val.numpy()
