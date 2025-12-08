@@ -21,6 +21,7 @@ import numpy as np
 from PIL import Image
 import tqdm
 
+Image.MAX_IMAGE_PIXELS = None
 
 class CMMDDataset(Dataset):
     def __init__(self, path, reshape_to, max_count=-1):
