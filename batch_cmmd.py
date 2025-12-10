@@ -117,10 +117,10 @@ def worker_process(gpu_id, folder_chunk, ref_dir, ref_embed_file, batch_size, ma
                     max_count=max_count,
                     embedding_model=model
                 )
-                results.append({"Folder": folder_path.name, "CMMD": val})
+                results.append({"folder": folder_path.name, "cmmd": val})
             except Exception as e:
                 print(f"[GPU {gpu_id}] Error on {folder_path.name}: {e}")
-                results.append({"Folder": folder_path.name, "CMMD": "Error"})
+                results.append({"folder": folder_path.name, "cmmd": "Error"})
         
         # Send results back to main process
         return_queue.put(results)
