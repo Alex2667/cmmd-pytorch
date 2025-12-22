@@ -201,11 +201,11 @@ def main(argv):
     # 5. Save Aggregated Results
     csv_path = eval_root / "cmmd_results.csv"
     with open(csv_path, mode='w', newline='') as csv_file:
-        fieldnames = ['Folder', 'CMMD']
+        fieldnames = ['folder', 'cmmd']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
         # Sort results by folder name for cleanliness
-        final_results.sort(key=lambda x: x['Folder'])
+        final_results.sort(key=lambda x: x['folder'])
         writer.writerows(final_results)
 
     print(f"\nAll processing complete. Results saved to: {csv_path}")
