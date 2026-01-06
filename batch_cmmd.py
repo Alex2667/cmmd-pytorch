@@ -144,21 +144,47 @@ def main(argv):
 
     # 2. Identify all folders to process (Root + Subdirectories)
     tasks = []
+
+    # Check for existing results to skip
+    csv_path = eval_root / "cmmd_results.csv"
+    processed_folders = set()
+    existing_results = []
     
+    if csv_path.exists():
+        try:
+            with open(csv_path, mode='r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    processed_folders.add(row['folder'])
+                    existing_results.append(row) # Keep old results to write back later
+            print(f"Found existing results for {len(processed_folders)} folders. Skipping them.")
+        except Exception as e:
+            print(f"Warning: Could not read existing CSV: {e}")
+
     # Check if the root folder itself has images
     if is_image_folder(eval_root):
-        tasks.append(eval_root)
+        if eval_root.name not in processed_folders:
+            tasks.append(eval_root)
+        else:
+            print(f"Skipping {eval_root.name} (already done)")
         
     # Check immediate subdirectories
     for item in eval_root.iterdir():
         if item.is_dir() and is_image_folder(item):
             # Avoid adding root again if it was already added
             if item != eval_root:
-                tasks.append(item)
+                if item.name not in processed_folders:
+                    tasks.append(item)
+                else:
+                    print(f"Skipping {item.name} (already done)")
 
     if not tasks:
         print(f"No image folders found in {eval_root}.")
-        return
+        if not existing_results:
+             return
+        else:
+             print("Everything seems to be processed already.")
+             return
 
     # 2. Setup GPU Parallelism
     num_gpus = torch.cuda.device_count()
@@ -199,14 +225,17 @@ def main(argv):
         p.join()
 
     # 5. Save Aggregated Results
+    # Merge existing results with new results
+    all_results = existing_results + final_results
+
     csv_path = eval_root / "cmmd_results.csv"
     with open(csv_path, mode='w', newline='') as csv_file:
         fieldnames = ['folder', 'cmmd']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
         # Sort results by folder name for cleanliness
-        final_results.sort(key=lambda x: x['folder'])
-        writer.writerows(final_results)
+        all_results.sort(key=lambda x: x['folder'])
+        writer.writerows(all_results)
 
     print(f"\nAll processing complete. Results saved to: {csv_path}")
 
