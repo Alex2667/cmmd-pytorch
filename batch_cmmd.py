@@ -4,6 +4,8 @@ Handles also single folders and saves a csv.
 Works with several GPUs by distributing the folders across them.
 Example usage:
 OMP_NUM_THREADS=32 MKL_NUM_THREADS=32 CUDA_VISIBLE_DEVICES=0 python batch_cmmd.py "" /export/data/abespalo/eval/coconut_base_stepdependency3 --ref_embed_file=/export/data/abespalo/datasets/unsplash-research-dataset-lite-latest/unsplash_images_all/ref_embeddings.npy --batch_size=32 
+on RTX2080ti
+CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7,8,9 OMP_NUM_THREADS=32 MKL_NUM_THREADS=32 python batch_cmmd.py "" /export/data/abespalo/eval/100_objects/final_tests/dtc --ref_embed_file=/export/data/abespalo/datasets/unsplash-research-dataset-lite-latest/unsplash_images_all/ref_embeddings.npy --batch_size=32 
 """
 
 # coding=utf-8
